@@ -1,260 +1,295 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt">
 <head>
-  <meta charset="UTF-8" />
-  <title>Viral Luxury Videos 4K Pack</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    :root {
-      --bg-main: #020716;
-      --bg-card: #050b1f;
-      --bg-card-soft: #081126;
-      --accent: #00c8ff;
-      --accent-soft: rgba(0, 200, 255, 0.15);
-      --gold: #f7c86a;
-      --text-main: #f5f7ff;
-      --text-soft: #b1b7d6;
-      --danger: #ff4b81;
-      --radius-xl: 18px;
-      --radius-lg: 14px;
-      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.55);
-      --max-width: 980px;
-      --border-glow: 1px solid rgba(0, 200, 255, 0.45);
-      --glass: rgba(11, 20, 46, 0.75);
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", sans-serif; background: radial-gradient(circle at top, #00008b 0, #001f3f 45%, #000 90%); color: var(--text-main); min-height: 100vh; overflow-x: hidden; }
-    .cyber-bg { position: fixed; inset: 0; overflow: hidden; z-index: -1; background: radial-gradient(circle at top, #071535 0, #000 70%); }
-    .cyber-bg span { position: absolute; width: 3px; height: 3px; border-radius: 50%; background: rgba(0, 200, 255, 0.8); box-shadow: 0 0 10px rgba(0, 200, 255, 0.7), 0 0 25px rgba(0, 200, 255, 0.4); animation: floatParticle 18s linear infinite; }
-    .cyber-bg span:nth-child(odd) { background: rgba(247, 200, 106, 0.9); box-shadow: 0 0 10px rgba(247, 200, 106, 0.8), 0 0 26px rgba(247, 200, 106, 0.4); }
-    @keyframes floatParticle { 0% { transform: translate3d(0, 0, 0) scale(0.9); opacity: 0; } 10% { opacity: 1; } 50% { transform: translate3d(120px, -220px, 0) scale(1.1); } 100% { transform: translate3d(-220px, -520px, 0) scale(0.9); opacity: 0; } }
-    .page { max-width: var(--max-width); margin: 32px auto 64px; padding: 0 16px 40px; position: relative; }
-    .timer-section { text-align: center; margin-bottom: 32px; }
-    .timer-above { font-size: 1.2rem; color: var(--danger); margin-bottom: 8px; animation: pulse 2s infinite; }
-    .timer { font-size: 2.5rem; font-weight: 700; color: var(--gold); letter-spacing: 0.1em; animation: flash 1s infinite alternate; }
-    @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.7; } 100% { opacity: 1; } }
-    @keyframes flash { 0% { color: var(--gold); } 100% { color: #ffd700; } }
-    .headline { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.1; margin-bottom: 16px; text-align: center; animation: fadeIn 1s ease-in; }
-    .subheadline { font-size: 1.2rem; color: var(--text-soft); margin-bottom: 32px; text-align: center; animation: fadeIn 1.5s ease-in; }
-    @keyframes fadeIn { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
-    .visual-proof { text-align: center; margin-bottom: 32px; }
-    .icons { display: flex; justify-content: center; gap: 16px; margin-top: 16px; }
-    .icon { width: 48px; height: 48px; transition: transform 0.3s; }
-    .icon:hover { transform: scale(1.1); }
-    .used-by { font-size: 0.9rem; color: var(--text-soft); text-align: center; margin-top: 8px; }
-    .benefits { list-style: none; margin-bottom: 32px; }
-    .benefit { font-size: 1.1rem; margin-bottom: 12px; position: relative; padding-left: 28px; animation: fadeIn 2s ease-in; }
-    .benefit:before { content: "✓"; position: absolute; left: 0; color: var(--gold); }
-    .price-anchor { text-align: center; margin-bottom: 24px; }
-    .old-price { font-size: 1.6rem; color: var(--text-soft); text-decoration: line-through; }
-    .new-price { font-size: 2.8rem; color: var(--gold); font-weight: 700; margin: 8px 0; }
-    .urgency { font-size: 1rem; color: var(--accent); margin-bottom: 24px; }
-    .buy-button { display: block; padding: 16px; background: linear-gradient(135deg, var(--accent), #00aaff); color: #fff; text-align: center; border-radius: 999px; font-weight: 700; font-size: 1.2rem; text-decoration: none; box-shadow: 0 0 20px rgba(0, 200, 255, 0.6); margin-bottom: 8px; transition: transform 0.3s; animation: pulse 2s infinite; }
-    .buy-button:hover { transform: scale(1.05); }
-    .sub-button { font-size: 0.9rem; color: var(--danger); text-align: center; margin-bottom: 32px; animation: pulse 2s infinite; }
-    .final-urgency { text-align: center; margin-bottom: 24px; font-size: 1.1rem; color: var(--text-soft); }
-    .repeat-button { display: block; padding: 16px; background: linear-gradient(135deg, var(--gold), #ffcc80); color: #000; text-align: center; border-radius: 999px; font-weight: 700; font-size: 1.2rem; text-decoration: none; box-shadow: 0 0 20px rgba(247, 200, 106, 0.6); margin-top: 16px; transition: transform 0.3s; animation: pulse 2s infinite; }
-    .repeat-button:hover { transform: scale(1.05); }
-    .footer { text-align: center; font-size: 0.8rem; color: var(--text-soft); margin-top: 48px; }
-    .notification { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.9); color: #fff; padding: 14px 24px; border-radius: 12px; font-size: 14px; z-index: 1000; opacity: 0; transition: opacity .4s; border-left: 4px solid var(--accent); max-width: 90%; animation: slideUp 0.5s ease-out forwards; }
-    .notification.show { opacity: 1; }
-    @keyframes slideUp { 0% { transform: translateY(100%); } 100% { transform: translateY(0); } }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BillionMind - Sua Mente, Sua Máquina de Geração de Resultados</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; color: #333; background-color: #f0f8ff; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        header { background-color: #ff4500; color: white; text-align: center; padding: 60px 20px; animation: fadeIn 1s ease-in; }
+        h1 { font-size: 2.5em; margin-bottom: 10px; }
+        h2 { font-size: 2em; margin-top: 40px; color: #ff1493; }
+        .benefits, .social-proof, .how-it-works, .who-can-use { margin: 40px 0; animation: slideIn 1s ease-out; }
+        .benefit-item, .step-item { display: flex; align-items: center; margin-bottom: 20px; background-color: #fffacd; padding: 10px; border-radius: 8px; transition: transform 0.3s; }
+        .benefit-item:hover, .step-item:hover { transform: scale(1.05); }
+        .benefit-item img, .step-item img { width: 50px; height: 50px; margin-right: 15px; }
+        .testimonial { display: flex; align-items: center; margin-bottom: 20px; background-color: #ffe4b5; padding: 10px; border-radius: 8px; transition: box-shadow 0.3s; }
+        .testimonial:hover { box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+        .testimonial img { width: 50px; height: 50px; border-radius: 50%; margin-right: 15px; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; background-color: #f0fff0; }
+        th, td { border: 1px solid #90ee90; padding: 10px; text-align: left; }
+        th { background-color: #32cd32; color: white; }
+        .cta { text-align: center; margin: 20px 0; }
+        .cta a { background-color: #ffd700; color: #ff4500; padding: 12px 24px; text-decoration: none; border-radius: 5px; margin: 10px; font-weight: bold; transition: background-color 0.3s, transform 0.3s; }
+        .cta a:hover { background-color: #ff8c00; transform: translateY(-3px); }
+        footer { background-color: #4b0082; color: white; text-align: center; padding: 20px; }
+        .hero-images { display: flex; justify-content: center; gap: 20px; margin: 20px 0; flex-wrap: wrap; }
+        .hero-images img { max-width: 250px; height: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.3s; }
+        .hero-images img:hover { transform: rotate(5deg); }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideIn {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            h1 { font-size: 2em; }
+            h2 { font-size: 1.5em; }
+            .hero-images { flex-direction: column; align-items: center; }
+            .benefit-item, .step-item, .testimonial { flex-direction: column; text-align: center; }
+            .benefit-item img, .step-item img, .testimonial img { margin-right: 0; margin-bottom: 10px; }
+            .cta a { display: block; width: 80%; margin: 10px auto; }
+            table { font-size: 0.9em; }
+        }
+    </style>
 </head>
-<body onload="detectLanguage()">
-  <div class="cyber-bg">
-    <span style="top: 80%; left: 8%; animation-delay: 0s;"></span>
-    <span style="top: 60%; left: 22%; animation-delay: 3s;"></span>
-    <span style="top: 72%; left: 40%; animation-delay: 6s;"></span>
-    <span style="top: 85%; left: 58%; animation-delay: 1.5s;"></span>
-    <span style="top: 66%; left: 80%; animation-delay: 4.2s;"></span>
-    <span style="top: 40%; left: 12%; animation-delay: 7.3s;"></span>
-    <span style="top: 32%; left: 48%; animation-delay: 2.4s;"></span>
-    <span style="top: 18%; left: 76%; animation-delay: 5.1s;"></span>
-    <span style="top: 10%; left: 30%; animation-delay: 8.7s;"></span>
-    <span style="top: 5%; left: 55%; animation-delay: 10.2s;"></span>
-  </div>
-  <div class="page">
-    <div class="timer-section">
-      <div class="timer-above" id="timer_above">Oferta Relâmpago – Preço Aumenta em Breve</div>
-      <div class="timer" id="timer">00:00</div>
-    </div>
-    <h1 class="headline" id="headline">Transforme Vídeos Virais de Luxo em Renda</h1>
-    <p class="subheadline" id="subheadline">Sem Aparecer. Sem Experiência. Apenas Conteúdo Viral. Aproveite esta oportunidade única antes que expire e transforme sua presença online em uma máquina de dinheiro!</p>
+<body>
+    <header>
+        <div class="container">
+            <h1>BillionMind — Sua Mente, Sua Máquina de Geração de Resultados</h1>
+            <p>Um ecossistema global de Inteligência Artificial, produtividade, monetização e bem-estar. Comece grátis ou desbloqueie tudo com Premium.</p>
+            <div class="hero-images">
+                <img src="https://specials-images.forbesimg.com/imageserve/67f53a9836e5f93cb080754c/960x0.jpg" alt="Ícone do app BillionMind com smartphone">
+                <img src="https://s3-alpha.figma.com/hub/file/2281710451292775083/9f5272b0-cfb4-448d-995f-3b96bdad0b15-cover.png" alt="Tela de AI Chat">
+                <img src="https://www.shutterstock.com/image-vector/dashboard-app-ui-webpage-analytics-260nw-2485113535.jpg" alt="Painel de Progresso">
+                <img src="https://cdn.prod.website-files.com/65c1ae21fb2191466dd6ce72/6634b92db4efd03f80f7d047_03.jpg" alt="Academy">
+                <img src="https://s3-alpha.figma.com/hub/file/5902074171/c7bde065-b6ec-4abc-9f28-54f08c2fb7a9-cover.png" alt="Health & Focus">
+            </div>
+            <div class="cta">
+                <a href="https://billionmind.lovable.app">Experimentar Gratuitamente</a>
+                <a href="https://billionmind.lovable.app">Assinar Premium — $29.98/mês</a>
+            </div>
+        </div>
+    </header>
 
-    <div class="visual-proof">
-      <p id="visual_proof">Vídeos luxuosos, cinematográficos, 4K, prontos para viralizar</p>
-      <div class="icons">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/1024px-Instagram_logo_2016.svg.png" alt="Instagram" class="icon">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_(2019).png/1024px-Facebook_Logo_(2019).png" alt="Facebook" class="icon">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/TikTok_logo.svg/1024px-TikTok_logo.svg.png" alt="TikTok" class="icon">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_(2017).svg/1024px-YouTube_full-color_icon_(2017).svg.png" alt="YouTube Shorts" class="icon">
-      </div>
-      <p id="used_by">Usado diariamente por criadores e marketers em todo o mundo</p>
-    </div>
+    <section class="benefits">
+        <div class="container">
+            <h2>Benefícios do BillionMind: Transforme Sua Rotina com IA Inteligente</h2>
+            <p>Descubra como o BillionMind, seu mentor de negócios e bem-estar, impulsiona resultados reais com ferramentas de alto impacto.</p>
+            <div class="benefit-item">
+                <img src="https://thumbs.dreamstime.com/b/ai-learning-assistant-robot-graduation-cap-helping-person-learn-laptop-digital-tutor-icon-interface-friendly-wearing-402772810.jpg" alt="Ícone Mentor de IA">
+                <div>
+                    <h3>Mentor de IA de Nível Profissional</h3>
+                    <p>Acesse um assistente IA personalizado que oferece orientação estratégica para negócios, produtividade e crescimento pessoal, como um coach 24/7.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <img src="https://www.shutterstock.com/image-vector/bulb-gears-inside-learning-solution-260nw-2533299607.jpg" alt="Ícone Criação de Conteúdo">
+                <div>
+                    <h3>Criação de Conteúdo Inteligente</h3>
+                    <p>Gere ideias, textos e estratégias de conteúdo otimizadas por IA, acelerando sua produção e engajamento em redes sociais ou negócios digitais.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <img src="https://www.shutterstock.com/image-vector/margin-icon-web-design-mobile-260nw-2703873849.jpg" alt="Ícone Monetização">
+                <div>
+                    <h3>Monetização e Estratégias Reais</h3>
+                    <p>Aprenda táticas comprovadas para gerar renda diária, de afiliados a e-commerce, com planos personalizados pela IA inteligente.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <img src="https://www.shutterstock.com/image-vector/heart-brain-on-scales-predominance-600nw-2170986507.jpg" alt="Ícone Saúde & Bem-Estar">
+                <div>
+                    <h3>Saúde & Bem-Estar Integrados</h3>
+                    <p>Monitore foco, rotinas e saúde mental com ferramentas integradas, promovendo equilíbrio para alta performance sustentável.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <img src="https://www.shutterstock.com/image-vector/modern-bento-ui-dashboard-data-260nw-2701521297.jpg" alt="Ícone Painel de Progresso">
+                <div>
+                    <h3>Painel de Progresso e Desafios</h3>
+                    <p>Acompanhe metas com gráficos interativos e desafios diários, transformando conhecimento em ações mensuráveis.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <img src="https://thumbs.dreamstime.com/b/simple-globe-icon-world-map-international-content-vector-design-generative-ai-clean-minimalist-perfect-representing-maps-427280567.jpg" alt="Ícone Tradução Automática">
+                <div>
+                    <h3>Tradução Automática e Suporte Global</h3>
+                    <p>Acesse o app em qualquer idioma, com suporte para usuários em todo o mundo, garantindo acessibilidade e expansão internacional.</p>
+                </div>
+            </div>
+            <div class="cta">
+                <a href="https://billionmind.lovable.app">Comece Agora Gratuitamente</a>
+            </div>
+        </div>
+    </section>
 
-    <ul class="benefits" id="benefits">
-      <li class="benefit">Vídeos virais de luxo em 4K prontos para uso</li>
-      <li class="benefit">Perfeito para conteúdo com IA e perfis sem rosto</li>
-      <li class="benefit">Economize horas de criação</li>
-      <li class="benefit">Funciona em todo o mundo</li>
-      <li class="benefit">Faça upload e monetize instantaneamente</li>
-    </ul>
+    <section class="social-proof">
+        <div class="container">
+            <h2>O Que Dizem Nossos Usuários: Prova Social Global</h2>
+            <p>Milhares de usuários ao redor do mundo estão transformando suas vidas com o BillionMind. Veja avaliações reais:</p>
+            <div class="testimonial">
+                <img src="https://thumbs.dreamstime.com/b/profile-picture-caucasian-male-employee-posing-office-happy-young-worker-look-camera-workplace-headshot-portrait-smiling-190186649.jpg" alt="John, EUA">
+                <div>
+                    <strong>John, EUA</strong> ⭐⭐⭐⭐⭐
+                    <p>"BillionMind revolucionou minha produtividade e monetização. O mentor IA é como ter um consultor premium no bolso!"</p>
+                </div>
+            </div>
+            <div class="testimonial">
+                <img src="https://www.shutterstock.com/image-photo/head-shot-profile-picture-beautiful-260nw-2583433919.jpg" alt="Ana, Brasil">
+                <div>
+                    <strong>Ana, Brasil</strong> ⭐⭐⭐⭐⭐
+                    <p>"Adoro o foco em saúde e desafios diários. Me ajudou a equilibrar trabalho e bem-estar de forma incrível."</p>
+                </div>
+            </div>
+            <div class="testimonial">
+                <img src="https://www.shutterstock.com/image-photo/confident-professional-businessman-dressed-formal-600nw-2589668235.jpg" alt="Pierre, Europa">
+                <div>
+                    <strong>Pierre, Europa</strong> ⭐⭐⭐⭐⭐
+                    <p>"Perfeito para empreendedores. As estratégias de monetização são reais e acionáveis, com suporte global impecável."</p>
+                </div>
+            </div>
+            <div class="testimonial">
+                <img src="https://www.shutterstock.com/image-vector/diverse-collection-people-avatars-varied-260nw-2687195725.jpg" alt="Li, Ásia">
+                <div>
+                    <strong>Li, Ásia</strong> ⭐⭐⭐⭐
+                    <p>"O painel de progresso me mantém motivado. Excelente para criação de conteúdo inteligente em múltiplos idiomas."</p>
+                </div>
+            </div>
+            <div class="cta">
+                <a href="https://billionmind.lovable.app">Desbloqueie Seu Potencial com Premium</a>
+            </div>
+        </div>
+    </section>
 
-    <div class="price-anchor">
-      <div class="old-price" id="old_price">Era R$19,90</div>
-      <div class="new-price" id="new_price">Hoje: R$9,90</div>
-      <div class="urgency" id="urgency">Pagamento único • Acesso instantâneo</div>
-    </div>
+    <section class="how-it-works">
+        <div class="container">
+            <h2>Como Funciona o BillionMind: Simples e Poderoso</h2>
+            <p>Comece a gerar resultados em minutos com nosso ecossistema de IA inteligente.</p>
+            <div class="step-item">
+                <img src="https://s3-alpha.figma.com/hub/file/2281710451292775083/9f5272b0-cfb4-448d-995f-3b96bdad0b15-cover.png" alt="Ícone Passo 2">
+                <div>
+                    <h3>1. Abra o App Sem Precisar de Login</h3>
+                    <p>Acesse instantaneamente, sem barreiras – ideal para testes rápidos.</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <img src="https://www.shutterstock.com/image-vector/dashboard-app-ui-webpage-analytics-260nw-2485113535.jpg" alt="Ícone Passo 3">
+                <div>
+                    <h3>2. Use o Mentor de IA Inteligente</h3>
+                    <p>Converse com um assistente personalizado para orientação em negócios, conteúdo e foco.</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div>
+                    <h3>3. Complete Desafios e Acompanhe Progresso</h3>
+                    <p>Participe de tarefas diárias e visualize avanços no painel interativo.</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div>
+                    <h3>4. Converta Conhecimento em Renda Diária</h3>
+                    <p>Aplique estratégias de monetização reais para gerar receita sustentável.</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div>
+                    <h3>5. Assine Premium para Desbloquear Tudo</h3>
+                    <p>Acesse chats ilimitados, vídeos completos, health hub avançado e mais.</p>
+                </div>
+            </div>
+            <div class="cta">
+                <a href="https://billionmind.lovable.app">Experimente Gratuitamente Agora</a>
+            </div>
+        </div>
+    </section>
 
-    <a href="https://pay.cakto.com.br/3dqovsu_546062" class="buy-button" id="button">Obter Acesso Instantâneo • Comece Hoje por R$9,90 – Urgente, Antes que Acabe!</a>
-    <p class="sub-button" id="sub_button">Vagas limitadas • Oferta terminando em breve</p>
+    <section class="comparison">
+        <div class="container">
+            <h2>Comparação de Planos: Free vs Premium</h2>
+            <p>Escolha o plano que acelera seu crescimento com IA inteligente e mentor de negócios.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Recursos</th>
+                        <th>Free</th>
+                        <th>Premium ($29.98/mês)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Acesso ao Mentor de IA</td>
+                        <td>Limitado</td>
+                        <td>Ilimitado e personalizado</td>
+                    </tr>
+                    <tr>
+                        <td>Criação de Conteúdo</td>
+                        <td>Básico</td>
+                        <td>Avançado com estratégias reais</td>
+                    </tr>
+                    <tr>
+                        <td>Painel de Progresso</td>
+                        <td>Simples</td>
+                        <td>Avançado com gráficos e desafios</td>
+                    </tr>
+                    <tr>
+                        <td>Health & Focus Hub</td>
+                        <td>Acesso básico</td>
+                        <td>Integrado com rotinas personalizadas</td>
+                    </tr>
+                    <tr>
+                        <td>Academy com Vídeos</td>
+                        <td>Trechos</td>
+                        <td>Conteúdos completos e exclusivos</td>
+                    </tr>
+                    <tr>
+                        <td>Tradução Automática</td>
+                        <td>Básica</td>
+                        <td>Suporte global total</td>
+                    </tr>
+                    <tr>
+                        <td>Monetização Estratégica</td>
+                        <td>Dicas iniciais</td>
+                        <td>Planos detalhados para renda diária</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="cta">
+                <a href="https://billionmind.lovable.app">Atualize para Premium</a>
+            </div>
+        </div>
+    </section>
 
-    <p class="final-urgency" id="final_urgency1">Este preço não ficará em R$9,90</p>
-    <p class="final-urgency" id="final_urgency2">Quando o timer acabar, o preço volta para R$19,90</p>
-    <a href="https://pay.cakto.com.br/3dqovsu_546062" class="repeat-button" id="repeat_button">Obter Acesso Instantâneo • Comece Hoje por R$9,90 – Urgente, Antes que Acabe!</a>
+    <section class="who-can-use">
+        <div class="container">
+            <h2>Quem Pode Usar o BillionMind?</h2>
+            <p>O app global de foco, saúde e monetização é perfeito para:</p>
+            <ul>
+                <li><strong>Criadores de Conteúdo</strong>: Gere ideias inteligentes e otimize engajamento.</li>
+                <li><strong>Empreendedores Digitais</strong>: Estratégias reais para crescimento e renda.</li>
+                <li><strong>Profissionais Buscando Eficiência</strong>: Mentor IA para produtividade máxima.</li>
+                <li><strong>Pessoas Focadas em Bem-Estar</strong>: Integre saúde mental e física na rotina.</li>
+                <li><strong>Usuários Globalmente</strong>: Suporte em múltiplos idiomas para impacto mundial.</li>
+            </ul>
+            <img src="https://www.taxmann.com/post/wp-content/uploads/2025/03/1.-Different-Dimensions-of-Entrepreneurship-in-the-Modern-Era.jpg" alt="Ilustração de usuários diversos" style="max-width: 100%; margin-top: 20px;">
+            <div class="cta">
+                <a href="https://billionmind.lovable.app">Comece Sua Jornada Global</a>
+            </div>
+        </div>
+    </section>
 
-    <div class="footer">
-      <p id="footer1">Produto digital • Entrega instantânea</p>
-      <p id="footer2">Para fins educacionais e criação de conteúdo</p>
-    </div>
-  </div>
+    <section class="final-cta">
+        <div class="container">
+            <h2>Pronto para Transformar Sua Mente em uma Máquina de Resultados?</h2>
+            <p>Não espere mais. Experimente o poder da IA inteligente, mentor de negócios, monetização diária e foco em saúde com BillionMind.</p>
+            <div class="cta">
+                <a href="https://billionmind.lovable.app">Experimentar Gratuitamente</a>
+                <a href="https://billionmind.lovable.app">Assinar Premium — $29.98/mês</a>
+            </div>
+        </div>
+    </section>
 
-  <div class="notification" id="notification"></div>
-
-  <script>
-    // Translations
-    const translations = {
-      pt: {
-        timer_above: 'Oferta Relâmpago – Preço Aumenta em Breve',
-        headline: 'Transforme Vídeos Virais de Luxo em Renda',
-        subheadline: 'Sem Aparecer. Sem Experiência. Apenas Conteúdo Viral. Aproveite esta oportunidade única antes que expire e transforme sua presença online em uma máquina de dinheiro!',
-        visual_proof: 'Vídeos luxuosos, cinematográficos, 4K, prontos para viralizar',
-        used_by: 'Usado diariamente por criadores e marketers em todo o mundo',
-        benefits: [
-          'Vídeos virais de luxo em 4K prontos para uso',
-          'Perfeito para conteúdo com IA e perfis sem rosto',
-          'Economize horas de criação',
-          'Funciona em todo o mundo',
-          'Faça upload e monetize instantaneamente'
-        ],
-        old_price: 'Era R$19,90',
-        new_price: 'Hoje: R$9,90',
-        urgency: 'Pagamento único • Acesso instantâneo',
-        button: 'Obter Acesso Instantâneo • Comece Hoje por R$9,90 – Urgente, Antes que Acabe!',
-        sub_button: 'Vagas limitadas • Oferta terminando em breve',
-        final_urgency1: 'Este preço não ficará em R$9,90',
-        final_urgency2: 'Quando o timer acabar, o preço volta para R$19,90',
-        footer1: 'Produto digital • Entrega instantânea',
-        footer2: 'Para fins educacionais e criação de conteúdo'
-      },
-      en: {
-        timer_above: 'Flash Offer – Price Increases Soon',
-        headline: 'Turn Viral Luxury Videos Into Income',
-        subheadline: 'No Face. No Experience. Just Viral Content. Seize this unique opportunity before it expires and transform your online presence into a money machine!',
-        visual_proof: 'Luxurious, cinematic, 4K videos ready to go viral',
-        used_by: 'Used daily by creators and marketers worldwide',
-        benefits: [
-          'Viral-ready luxury videos in 4K',
-          'Perfect for AI content & faceless profiles',
-          'Save hours of creation',
-          'Works worldwide',
-          'Upload and monetize instantly'
-        ],
-        old_price: 'Was $19.90',
-        new_price: 'Today: $9.90',
-        urgency: 'One-time payment • Instant access',
-        button: 'Get Instant Access • Start Today for $9.90 – Urgent, Before It's Gone!',
-        sub_button: 'Limited spots • Offer ending soon',
-        final_urgency1: 'This price will not stay at $9.90',
-        final_urgency2: 'Once the timer ends, the price goes back to $19.90',
-        footer1: 'Digital product • Instant delivery',
-        footer2: 'For educational and content creation purposes'
-      },
-      es: {
-        timer_above: 'Oferta Relámpago – El Precio Aumenta Pronto',
-        headline: 'Transforma Videos Virales de Lujo en Ingresos',
-        subheadline: 'Sin Mostrar la Cara. Sin Experiencia. Solo Contenido Viral. ¡Aprovecha esta oportunidad única antes de que expire y transforma tu presencia online en una máquina de dinero!',
-        visual_proof: 'Videos lujosos, cinematográficos, 4K, listos para viralizarse',
-        used_by: 'Usado diariamente por creadores y marketers en todo el mundo',
-        benefits: [
-          'Videos virales de lujo en 4K listos para usar',
-          'Perfecto para contenido con IA y perfiles sin rostro',
-          'Ahorra horas de creación',
-          'Funciona en todo el mundo',
-          'Sube y monetiza instantáneamente'
-        ],
-        old_price: 'Era €19,90',
-        new_price: 'Hoy: €9,90',
-        urgency: 'Pago único • Acceso instantáneo',
-        button: 'Obtener Acceso Instantáneo • Comienza Hoy por €9,90 – ¡Urgente, Antes de que Termine!',
-        sub_button: 'Plazas limitadas • Oferta terminando pronto',
-        final_urgency1: 'Este precio no se quedará en €9,90',
-        final_urgency2: 'Cuando el temporizador termine, el precio vuelve a €19,90',
-        footer1: 'Producto digital • Entrega instantánea',
-        footer2: 'Para fines educativos y creación de contenido'
-      }
-    };
-
-    // Detect language
-    function detectLanguage() {
-      const langCode = navigator.language.split('-')[0];
-      const lang = translations[langCode] ? langCode : 'en';
-      const trans = translations[lang];
-      document.getElementById('timer_above').innerText = trans.timer_above;
-      document.getElementById('headline').innerText = trans.headline;
-      document.getElementById('subheadline').innerText = trans.subheadline;
-      document.getElementById('visual_proof').innerText = trans.visual_proof;
-      document.getElementById('used_by').innerText = trans.used_by;
-      const benefitLis = document.querySelectorAll('.benefit');
-      benefitLis.forEach((li, i) => li.innerText = trans.benefits[i]);
-      document.getElementById('old_price').innerText = trans.old_price;
-      document.getElementById('new_price').innerText = trans.new_price;
-      document.getElementById('urgency').innerText = trans.urgency;
-      document.getElementById('button').innerText = trans.button;
-      document.getElementById('sub_button').innerText = trans.sub_button;
-      document.getElementById('final_urgency1').innerText = trans.final_urgency1;
-      document.getElementById('final_urgency2').innerText = trans.final_urgency2;
-      document.getElementById('repeat_button').innerText = trans.button;
-      document.getElementById('footer1').innerText = trans.footer1;
-      document.getElementById('footer2').innerText = trans.footer2;
-    }
-
-    // Timer
-    const saved = localStorage.getItem('offerTimer');
-    let endTime = saved ? parseInt(saved) : Date.now() + (5 + Math.floor(Math.random() * 11)) * 60000; // 5-15 min for high urgency
-    if (!saved) localStorage.setItem('offerTimer', endTime);
-    const timerInterval = setInterval(() => {
-      const diff = endTime - Date.now();
-      if (diff <= 0) {
-        clearInterval(timerInterval);
-        document.getElementById('timer').innerText = '00:00';
-        return;
-      }
-      const m = Math.floor(diff / 60000).toString().padStart(2, '0');
-      const s = Math.floor((diff % 60000) / 1000).toString().padStart(2, '0');
-      document.getElementById('timer').innerText = m + ':' + s;
-    }, 1000);
-
-    // Notifications
-    const names = ['Michael', 'Lucas', 'Sofia', 'Juan', 'Emma', 'Pedro', 'Ana', 'Carlos', 'Julia', 'David'];
-    const countries = ['USA', 'Brazil', 'Spain', 'Portugal', 'Canada'];
-    let usedNames = [];
-    function showNotification() {
-      if (usedNames.length === names.length) usedNames = [];
-      let name;
-      do { name = names[Math.floor(Math.random() * names.length)]; } while (usedNames.includes(name));
-      usedNames.push(name);
-      const country = countries[Math.floor(Math.random() * countries.length)];
-      const notif = document.getElementById('notification');
-      notif.innerHTML = `${name} from ${country} just purchased!`;
-      notif.classList.add('show');
-      setTimeout(() => { notif.classList.remove('show'); }, 4000);
-    }
-    setTimeout(() => {
-      showNotification();
-      setInterval(showNotification, 15000 + Math.random() * 15000);
-    }, 5000);
-  </script>
+    <footer>
+        <div class="container">
+            <p><a href="https://billionmind.lovable.app/privacy">Política de Privacidade</a> | <a href="https://billionmind.lovable.app/terms">Termos de Uso</a> | <a href="https://billionmind.lovable.app/support">Suporte</a></p>
+            <p>© 2026 BillionMind. Todos os direitos reservados.</p>
+        </div>
+    </footer>
 </body>
 </html>
